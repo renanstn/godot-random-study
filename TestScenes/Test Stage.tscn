@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Tilesets/GrassTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/MainCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Backgrounds/_Complete_static_BG_(288 x 208).png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Enemy_A.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Cover.tscn" type="PackedScene" id=5]
+
+[node name="Test Stage" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 983040, 4, 0, 983041, 3, 0, 983042, 3, 0, 983043, 5, 0, 1114130, 4, 0, 1114131, 3, 0, 1114132, 3, 0, 1114133, 3, 0, 1114134, 3, 0, 1114135, 3, 0, 1114136, 3, 0, 1114137, 3, 0, 1114138, 3, 0, 1114139, 5, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1310744, 0, 0, 1310745, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1310756, 0, 0, 1310757, 0, 0, 1310758, 0, 0, 1310759, 0, 0, 1376256, 6, 0, 1376257, 6, 0, 1376258, 6, 0, 1376259, 6, 0, 1376260, 6, 0, 1376261, 6, 0, 1376262, 6, 0, 1376263, 6, 0, 1376264, 6, 0, 1376265, 6, 0, 1376266, 6, 0, 1376267, 6, 0, 1376268, 6, 0, 1376269, 6, 0, 1376270, 6, 0, 1376271, 6, 0, 1376272, 6, 0, 1376273, 6, 0, 1376274, 6, 0, 1376275, 6, 0, 1376276, 6, 0, 1376277, 6, 0, 1376278, 6, 0, 1376279, 6, 0, 1376280, 6, 0, 1376281, 6, 0, 1376282, 6, 0, 1376283, 6, 0, 1376284, 6, 0, 1376285, 6, 0, 1376286, 6, 0, 1376287, 6, 0, 1376288, 6, 0, 1376289, 6, 0, 1376290, 6, 0, 1376291, 6, 0, 1376292, 6, 0, 1376293, 6, 0, 1376294, 6, 0, 1376295, 6, 0, 1441792, 6, 0, 1441793, 6, 0, 1441794, 6, 0, 1441795, 6, 0, 1441796, 6, 0, 1441797, 6, 0, 1441798, 6, 0, 1441799, 6, 0, 1441800, 6, 0, 1441801, 6, 0, 1441802, 6, 0, 1441803, 6, 0, 1441804, 6, 0, 1441805, 6, 0, 1441806, 6, 0, 1441807, 6, 0, 1441808, 6, 0, 1441809, 6, 0, 1441810, 6, 0, 1441811, 6, 0, 1441812, 6, 0, 1441813, 6, 0, 1441814, 6, 0, 1441815, 6, 0, 1441816, 6, 0, 1441817, 6, 0, 1441818, 6, 0, 1441819, 6, 0, 1441820, 6, 0, 1441821, 6, 0, 1441822, 6, 0, 1441823, 6, 0, 1441824, 6, 0, 1441825, 6, 0, 1441826, 6, 0, 1441827, 6, 0, 1441828, 6, 0, 1441829, 6, 0, 1441830, 6, 0, 1441831, 6, 0 )
+
+[node name="Cover" parent="." instance=ExtResource( 5 )]
+position = Vector2( 128, 312 )
+
+[node name="MainCharacter" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 232 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 288, 0 )
+__meta__ = {
+"_editor_description_": "Scale and mirroring changed."
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 130 )
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_editor_description_": "Centered: off."
+}
+
+[node name="Enemy_A" parent="." instance=ExtResource( 4 )]
+position = Vector2( 312, 312 )
