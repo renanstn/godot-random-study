@@ -165,3 +165,7 @@ anims/Blink = SubResource( 6 )
 anims/Idle = SubResource( 2 )
 anims/Jumping = SubResource( 3 )
 anims/Walking = SubResource( 5 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 320, 0 )
