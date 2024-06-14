@@ -9,12 +9,14 @@ export var speed: int = 100
 onready var sprite = $Sprite
 onready var animator = $AnimationPlayer
 onready var raycast = $RayCast2D
+onready var shoot_sound = $ShootSound
 
 var explosion_scene = preload("res://Scenes/Explosion.tscn")
 var motion = Vector2()
 var looking_to_right = true
 var can_move = true
 var can_take_cover = false  # Controlled by Cover scene
+var cover_object = null     # Controlled by Cover scene
 var covered = false
 var can_shoot = true
 
@@ -73,6 +75,11 @@ func take_cover():
 		sprite.modulate.r = 0.4
 		sprite.modulate.g = 0.4
 		sprite.modulate.b = 0.4
+		cover_object.used()
+		if global_position.x < cover_object.global_position.x:
+			position.x = cover_object.left_side.global_position.x
+		else:
+			position.x = cover_object.right_side.global_position.x
 
 
 func out_cover():
@@ -81,11 +88,13 @@ func out_cover():
 	sprite.modulate.r = 1
 	sprite.modulate.g = 1
 	sprite.modulate.b = 1
+	cover_object.unused()
 
 
 func shoot():
 	if not can_shoot:
 		return
+	shoot_sound.play()
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		var collision_point = raycast.get_collision_point()

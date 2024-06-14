@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/Characters/Main Character/Idle (16 x 16).png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MainCharacter.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Characters/Main Character/Run (16 x 16).png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Main Character/Jump (16 x 16).png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Main Character/Blink (16 x 16).png" type="Texture" id=5]
+[ext_resource path="res://Audios/footstep_snow_004.ogg" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -169,3 +170,6 @@ anims/Walking = SubResource( 5 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 320, 0 )
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
