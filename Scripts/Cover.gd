@@ -9,12 +9,12 @@ var being_used = false
 
 func used():
 	being_used = true
-	collision_shape.disabled = false
+#	collision_shape.disabled = false
 
 
 func unused():
 	being_used = false
-	collision_shape.disabled = true
+#	collision_shape.disabled = true
 
 
 func _on_CoverArea_body_entered(body):

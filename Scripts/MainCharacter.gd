@@ -44,7 +44,7 @@ func fromInputsToMotion() -> Vector2:
 func checkActionsInput():
 	if Input.is_action_just_pressed("ui_down"):
 		take_cover()
-	if Input.is_action_just_released("ui_down"):
+	if Input.is_action_just_released("ui_down") and covered:
 		out_cover()
 	if Input.is_action_just_pressed("ui_accept"):
 		shoot()
@@ -69,17 +69,18 @@ func animate():
 
 
 func take_cover():
-	if can_take_cover:
-		covered = true
-		can_move = false
-		sprite.modulate.r = 0.4
-		sprite.modulate.g = 0.4
-		sprite.modulate.b = 0.4
-		cover_object.used()
-		if global_position.x < cover_object.global_position.x:
-			position.x = cover_object.left_side.global_position.x
-		else:
-			position.x = cover_object.right_side.global_position.x
+	if !can_take_cover:
+		return
+	covered = true
+	can_move = false
+	sprite.modulate.r = 0.4
+	sprite.modulate.g = 0.4
+	sprite.modulate.b = 0.4
+	cover_object.used()
+	if global_position.x < cover_object.global_position.x:
+		position.x = cover_object.left_side.global_position.x
+	else:
+		position.x = cover_object.right_side.global_position.x
 
 
 func out_cover():

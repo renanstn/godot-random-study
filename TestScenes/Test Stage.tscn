@@ -20,6 +20,9 @@ texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 576, 208 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -29,6 +32,9 @@ tile_data = PoolIntArray( 983040, 4, 0, 983041, 3, 0, 983042, 3, 0, 983043, 5, 0
 
 [node name="Cover" parent="." instance=ExtResource( 5 )]
 position = Vector2( 128, 312 )
+
+[node name="Cover2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 264, 312 )
 
 [node name="MainCharacter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 32, 232 )
